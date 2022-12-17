@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    letter-spacing: 0.5px ;
+    text-decoration: none;
+    color: #000;
+}
+
+.divContainerTask{
+    background: rgb(238, 250, 200);
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* PANEL NAV LINK */
+.divPanelHead{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px 0;
+}
+
+.divPanelHead a{
+    font-size: 25px;
+}
+
+.divPanelHead > a:first-child::after{
+    content: "/";
+    margin: 0 10px;
+    color: rgba(0, 0, 0, 0.481);
+    font-weight: 100;
+}
+
+/* TACHES */
+.divWrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divTaskItem{
+    padding: 10px;
+    background: #fff;
+    width: 300px;
+    border-radius: 4px;
+    margin: 0 20px 20px 0;
+    box-shadow: 0 1px 10px 0 #000;
+}
+
+.divTaskItem:nth-child(6n){
+    margin-right: 0;
+}
+
+
+/* ETIQUETTES */
+.divEtiquette{
+    margin: 10px 0;
+}
+.divEtiquette span{
+    background: orange;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 4px 10px;
+}
+
+
+/* MIN DETAILS */
+.divMinDetail{
+    margin: 20px 0;
+}
+
+.divMinDetail h2{
+    font-size: 25px;
+}
+
+.divMinDetail p{
+    font-size: 15px;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* AFFCETED */
+.divAffected{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divAffected .divUsers{
+    height: 40px;
+}
+
+.divUsers img{
+    height: 100%;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.divCreated{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.divCreated p{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.divCreated span{
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+

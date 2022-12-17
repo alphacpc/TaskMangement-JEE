@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #000;
+    letter-spacing: 0.5px;
+
+}
+
+body{
+    background: ghostwhite;
+}
+
+.banner{
+    background: rgb(238, 250, 200);
+    padding: 20px;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner h1{
+    font-size: 60px;
+    letter-spacing: 1px;
+}
+
+
+.divContent, .divPanelMenu{
+    padding: 0 8% ;
+}
+
+.divPanelMenu{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divNavigation a{
+    font-size: 25px;
+}
+
+.divNavigation a::after{
+    content: "/";
+    margin: 0 10px;
+    color: rgba(0, 0, 0, 0.469);
+}
+
+.divNavigation a:last-child::after{
+    content: "";
+}
+
+.btns button{
+    border: none;
+    font-size: 15px;
+    padding: 10px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid rgb(163, 211, 7);
+    color: rgb(163, 211, 7);
+    background: transparent;
+    font-weight: bold;
+    transition: all ease;
+}
+.btns button:hover{
+    background: rgb(163, 211, 7);
+    color: #FFF;
+}
+
+.divContent{
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divContent p{
+    font-size: 20px;
+    letter-spacing: 1px;
+}
