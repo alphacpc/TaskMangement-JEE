@@ -1,38 +1,3 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    letter-spacing: 0.5px ;
-    text-decoration: none;
-    color: #000;
-}
-
-.divContainerTask{
-    background: rgb(238, 250, 200);
-    min-height: 100vh;
-    padding: 10px;
-}
-
-/* PANEL NAV LINK */
-.divPanelHead{
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 20px 0;
-}
-
-.divPanelHead a{
-    font-size: 25px;
-}
-
-.divPanelHead > a:first-child::after{
-    content: "/";
-    margin: 0 10px;
-    color: rgba(0, 0, 0, 0.481);
-    font-weight: 100;
-}
-
 /* TACHES */
 .divWrapper{
     display: flex;
@@ -43,9 +8,9 @@
     padding: 10px;
     background: #fff;
     width: 300px;
-    border-radius: 4px;
+    height: auto;
+    border-radius: 10px;
     margin: 0 20px 20px 0;
-    box-shadow: 0 1px 10px 0 #000;
 }
 
 .divTaskItem:nth-child(6n){
@@ -71,8 +36,9 @@
     margin: 20px 0;
 }
 
-.divMinDetail h2{
+.divMinDetail a.title{
     font-size: 25px;
+    font-weight: bold;
 }
 
 .divMinDetail p{
