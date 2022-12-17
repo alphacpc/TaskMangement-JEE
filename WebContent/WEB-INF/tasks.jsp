@@ -3,21 +3,20 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./assets/css/style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/css/taches.css">
         <title>Taches</title>
     </head>
-
     <body>
 
-        <div class="divContainerTask">
-            <div class="divPanelHead">
-                <a href="#">Toutes les taches</a>
-                <a href="#">Mes Taches</a>
-            </div>
+		<%@ include file="banner.jsp" %>
 
+		<%@ include file="menu.jsp" %>
+
+        <div class="divContent">
             <div class="divWrapper">
                 <div class="divTaskItem">
                     <div class="divEtiquette">
@@ -26,14 +25,14 @@
                     </div>
 
                     <div class="divMinDetail">
-                        <!-- <a href="#"><h2>Pages "About" and "Carrer"</h2></a> -->
+                        <a href="#" class="title">Pages "About" and "Carrer"</a>
                         <p>Lorem ipsum tango nan minsu alphacpc ipsum suki sanu maxo ...</p>
                     </div>
 
                     <div class="divAffected">
                         <div class="divUsers">
-                            <img src="./images/logo.png" alt="logo">
-                            <img src="./images/logo.png" alt="logo">
+                            <span>NF</span>
+                            <span>NF</span>
                         </div>
                         <div class="divCreated">
                             <p>Date de création</p>
@@ -43,8 +42,8 @@
                 </div>
 
             </div>
-            
         </div>
 
     </body>
 </html>
+    

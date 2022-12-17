@@ -39,6 +39,7 @@
 .divMinDetail a.title{
     font-size: 25px;
     font-weight: bold;
+    line-height: 35px;
 }
 
 .divMinDetail p{
@@ -56,12 +57,21 @@
 
 .divAffected .divUsers{
     height: 40px;
+    display: flex;
+    align-items: center;
+    
 }
 
-.divUsers img{
-    height: 100%;
+.divUsers span{
+    padding: 10px;
     border-radius: 50%;
-    object-fit: fill;
+    background-color: rgb(163, 211, 7);
+    color: #FFF;
+    font-weight: bold;
+}
+
+.divUsers span:first-child{
+	margin-right: 5px;
 }
 
 .divCreated{
