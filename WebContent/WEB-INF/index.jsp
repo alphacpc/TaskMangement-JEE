@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="./assets/css/taches.css">
+        <link rel="stylesheet" href="./assets/css/form.css">
+        <script src="./assets/js/app.js" defer></script>
         <title>Utilisateurs</title>
     </head>
     <body>
@@ -15,6 +17,8 @@
 		<%@ include file="banner.jsp" %>
 
 		<%@ include file="menu.jsp" %>
+		
+		<%@ include file="Forms/userForm.jsp" %>
 
         <div class="divContent">
             <div class="divWrapper">
@@ -32,4 +36,3 @@
 
     </body>
 </html>
-    

@@ -1,0 +1,100 @@
+.divOverlay{
+    background: rgba(0, 0, 0, 0.644);
+    position: absolute;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+
+form{
+    background: #FFF;
+    padding: 20px;
+    border-radius: 4px;
+    width: 600px;
+}
+
+
+.divHeadForm{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+
+.divHeadForm button{
+    background: #F05;
+    color: #FFF;
+    font-size: 20px;
+    border: none;
+    padding: 5px 10px;
+    height: auto !important;
+    border-radius: 4px;
+}
+
+.divHeadForm h2{
+    font-size: 35px;
+}
+
+
+.divFormWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.divFormWrapper .divFormGroup{
+    width: 48%;
+}
+
+
+.divFormGroup{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.divFormGroup input,
+.divFormGroup textarea,
+.users{
+    padding: 10px 5px;
+    border: 1px solid rgb(215, 215, 218);
+    margin-top: 10px;
+    border-radius: 4px;
+    outline: 0;
+}
+
+.divFormGroup textarea{
+    height: 100px;
+    resize: none;
+}
+
+button[type="submit"]{
+    background: greenyellow;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    transition: all ease .3s;
+}
+
+
+
+
+.users span{
+    background: orange;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 0 5px 5px 0;
+    font-weight: bold;
+}
+
+button{
+    cursor: pointer;
+}

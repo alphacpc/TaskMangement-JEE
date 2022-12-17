@@ -6,19 +6,15 @@
     	<meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="stylesheet" href="./assets/css/taches.css">
-        <link rel="stylesheet" href="./assets/css/form.css">
-        <script src="./assets/js/app.js" defer></script>
-        <title>Taches</title>
+        <link rel="stylesheet" href="./../assets/css/style.css">
+        <link rel="stylesheet" href="./../assets/css/taches.css">
+        <title>Mes taches</title>
     </head>
     <body>
 
 		<%@ include file="banner.jsp" %>
 
 		<%@ include file="menu.jsp" %>
-
-		<%@ include file="Forms/taskForm.jsp" %>
 
         <div class="divContent">
             <div class="divWrapper">
@@ -29,7 +25,7 @@
                     </div>
 
                     <div class="divMinDetail">
-                        <a href="#" class="title">Pages "About" and "Carrer"</a>
+                        <a href="#" class="title">Afficher toutes les taches d'un utilisateur</a>
                         <p>Lorem ipsum tango nan minsu alphacpc ipsum suki sanu maxo ...</p>
                     </div>
 
