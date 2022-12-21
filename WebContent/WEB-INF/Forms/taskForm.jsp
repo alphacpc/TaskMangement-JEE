@@ -2,7 +2,7 @@
 
 <div class="divOverlay">
 
-    <form action="" method="post">
+    <form action="taches" method="post">
         <div class="divHeadForm">
             <h2>Ajouter une tache</h2>
             <button class="closeForm">Fermer</button>
@@ -10,17 +10,17 @@
 
         <div class="divFormGroup">
             <label for="">Titre</label>
-            <input type="text" placeholder="Mise en relation">
+            <input name="title" type="text" placeholder="Mise en relation">
         </div>
 
         <div class="divFormGroup">
             <label for="">Description</label>
-            <textarea name="" placeholder="Message..."></textarea>
+            <textarea name=desc"" placeholder="Message..."></textarea>
         </div>
 
         <div class="divFormGroup">
             <label for="">Etiquettes</label>
-            <input type="text" placeholder="Mise en relation">
+            <input name="label" type="text" placeholder="Mise en relation">
         </div>
 
         <div class="divFormGroup">

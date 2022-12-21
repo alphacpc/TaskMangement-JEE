@@ -1,0 +1,38 @@
+.divEtiquette{
+    width: 100%;
+}
+
+table{
+    width: 100%;
+}
+
+thead tr th{
+    padding: 20px 0;
+    font-size: 25px;
+    letter-spacing: 1px;
+    text-align: start;
+}
+
+tbody tr td{
+    padding: 20px 0;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(232, 232, 232);
+}
+
+tbody tr a.btn-icon{
+    background: #F05;
+    color: #fff;
+    padding: 4px 12px;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+tbody tr .btn-edit{
+    background: green;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+}

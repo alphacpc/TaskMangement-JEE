@@ -1,4 +1,4 @@
-package com.users.servlets;
+package com.tasks.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,26 +7,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.controller.forms.UserForm;
+import com.controller.forms.LabelForm;
 
 
-@WebServlet("/utilisateurs")
-public class Users extends HttpServlet {
+@WebServlet("/etiquettes")
+public class Etiquettes extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public Users() {
+       
+    public Etiquettes() {
         super();
     }
 
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String inputText = "Ajouter un utilisateur";
+		String inputText = "Ajouter une étiquette";
 		request.setAttribute("input", inputText);
-		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/etiquettes.jsp").forward(request, response);
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserForm user = new UserForm();
-		String result = user.addUser(request);
+		LabelForm label = new LabelForm();
+		String result = label.addLabel(request);
 		System.out.println(result);
 		doGet(request, response);
 	}

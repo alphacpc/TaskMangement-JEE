@@ -65,10 +65,17 @@ body{
     font-weight: bold;
     transition: all ease;
 }
+
 .btns button:hover{
     background: rgb(163, 211, 7);
     color: #FFF;
 }
+
+.btns #hide{
+    display: none !important;
+    background: red;
+}
+
 
 .divContent{
     min-height: auto;
