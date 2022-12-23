@@ -1,6 +1,8 @@
 package com.users.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.controller.forms.UserForm;
-
+import com.models.beans.User;
+import com.models.bdd.UsersModel;
 
 @WebServlet("/utilisateurs")
 public class Users extends HttpServlet {
@@ -20,6 +23,12 @@ public class Users extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String inputText = "Ajouter un utilisateur";
+		
+		UsersModel users = new UsersModel() ;
+		List<User> result =  users.getUsers();
+		
+		System.out.println(result);
+		
 		request.setAttribute("input", inputText);
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 	}
