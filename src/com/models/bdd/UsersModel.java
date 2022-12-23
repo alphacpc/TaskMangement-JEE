@@ -27,7 +27,7 @@ public class UsersModel {
 		ResultSet result;
 		
 		try {
-			connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercice1", "root", "");
+			connexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/exercice1", "root", "root");
 			// connexion.createStatement();
 			result = connexion.createStatement().executeQuery("SELECT * FROM vehicules;");
 			
