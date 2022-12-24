@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,13 +25,15 @@
                 <div class="divUserItem">
                     <span>NF</span>
                     <div>
-                    	<h2>NdambÃ© Fall</h2>
+                    	<h2>Ndambé Fall</h2>
                     	<p>Fullstack developer</p>
                     </div>
                 </div>
 
             </div>
             
+            
+            <c:out value="Hello world !"/>
         </div>
 
     </body>
