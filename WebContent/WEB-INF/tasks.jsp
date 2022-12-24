@@ -22,6 +22,7 @@
 
         <div class="divContent">
             <div class="divWrapper">
+            	<c:forEach var="task" items="${tasks}">
                 <div class="divTaskItem">
                     <div class="divEtiquette">
                         <span>Website</span>
@@ -29,7 +30,7 @@
                     </div>
 
                     <div class="divMinDetail">
-                        <a href="#" class="title">Pages "About" and "Carrer"</a>
+                        <a href="#" class="title"><c:out value="${task.title}" /></a>
                         <p>Lorem ipsum tango nan minsu alphacpc ipsum suki sanu maxo ...</p>
                     </div>
 
@@ -44,6 +45,7 @@
                         </div>
                     </div> 
                 </div>
+                </c:forEach>
 
             </div>
         </div>

@@ -10,18 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.models.beans.User;
+import com.models.bdd.ConnectDB;
+
 
 public class UsersModel {
 	
-	private Connection connexion;
+	private Connection connexion = new ConnectDB().loadDatabase();
 	
 	public List<User> getUsers(){
 		List<User> users = new ArrayList<User>();
 		ResultSet result;
-		
-		loadDatabase();
-		
-		
+			
 		try {
 			
 			// connexion.createStatement();
@@ -50,25 +49,7 @@ public class UsersModel {
 	}
 	
 	
-	private void loadDatabase(){
-		try{
-			Class.forName("com.mysql.jdbc.Driver");
-		}catch(ClassNotFoundException e){
-			System.out.println(e);
-		}
-		
-		try {
-			connexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/TasksManagement", "root", "root");
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
-	}
-	
-	
 	public void addUserModel(User user){
-		loadDatabase();
-		
-		System.out.println("Migoooooos not working");
 		
 		try {
 			String query = "INSERT INTO Users(userid, fname, lname, email, profession, pwd) VALUES(NULL, ?, ?, ?, ?, ?);";

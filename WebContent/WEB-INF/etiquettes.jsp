@@ -36,41 +36,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                    	<c:forEach var="label" items="${labels}">
                         <tr>
                             <td><a href="" class="btn-icon">-</a></td>
-                            <td>Base de données</td>
-                            <td>#F05790</td>
+                            <td><c:out value="${label.title}"/></td>
+                            <td><c:out value="${label.code}"/></td>
                             <td>red</td>
                             <td><a href="" class="btn-edit">Modifier</a></td>
                         </tr>
-                        <tr>
-                            <td><a href="" class="btn-icon">-</a></td>
-                            <td>Base de données</td>
-                            <td>#F05790</td>
-                            <td>red</td>
-                            <td><a href="" class="btn-edit">Modifier</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="" class="btn-icon">-</a></td>
-                            <td>Base de données</td>
-                            <td>#F05790</td>
-                            <td>red</td>
-                            <td><a href="" class="btn-edit">Modifier</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="" class="btn-icon">-</a></td>
-                            <td>Base de données</td>
-                            <td>#F05790</td>
-                            <td>red</td>
-                            <td><a href="" class="btn-edit">Modifier</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="" class="btn-icon">-</a></td>
-                            <td>Base de données</td>
-                            <td>#F05790</td>
-                            <td>red</td>
-                            <td><a href="" class="btn-edit">Modifier</a></td>
-                        </tr>
+                        </c:forEach>
+                        
                     </tbody>
                 </table>
             </div>
