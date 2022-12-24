@@ -21,19 +21,19 @@
 
         <div class="divContent">
             <div class="divWrapper">
-               
+               <c:forEach var="user" items="${result}">
                 <div class="divUserItem">
-                    <span>NF</span>
+                    <span>
+                    	<c:out value="${user.fname.toUpperCase().charAt(0)}"/><c:out value="${user.lname.toUpperCase().charAt(0)}"/>
+                    </span>
                     <div>
-                    	<h2>Ndambé Fall</h2>
-                    	<p>Fullstack developer</p>
+                    	<h2>${user.fname} ${user.lname.toUpperCase()}</h2>
+                    	<p>${user.job}</p>
                     </div>
                 </div>
-
+				</c:forEach>
             </div>
             
-            
-            <c:out value="Hello world !"/>
         </div>
 
     </body>
