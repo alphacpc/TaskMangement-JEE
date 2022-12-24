@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="./assets/css/taches.css">
         <link rel="stylesheet" href="./assets/css/form.css">
         <link rel="stylesheet" href="./assets/css/etiquettes.css">
-        <script src="./assets/js/app.js" defer></script>
+        
         <title>Taches</title>
     </head>
     <body>
@@ -51,7 +51,7 @@
             </div>
 
         </div>
-
+		<script src="./assets/js/app.js"></script>
     </body>
 </html>
     
