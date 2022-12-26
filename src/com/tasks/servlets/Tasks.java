@@ -41,9 +41,10 @@ public class Tasks extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		TaskForm task = new TaskForm();
-		String result = task.addTask(request);
-		System.out.println(result);
+		task.addTask(request);
+		
 		doGet(request, response);
 	}
 

@@ -15,7 +15,7 @@ import com.models.bdd.LabelModel;
 import com.models.beans.LabelBean;
 
 
-@WebServlet("/")
+@WebServlet("/etiquettes")
 public class Etiquettes extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,35 +23,13 @@ public class Etiquettes extends HttpServlet {
         super();
     }
 
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String action = request.getServletPath();
-		System.out.println(action);
-		
-		switch (action) {
-			case "/etiquettes/delete":
-				doDelete(request, response);
-				break;
-				
-			case "/etiquettes":
-				listLabel(request, response);
-				break;
-				
-			default:
-				listLabel(request, response);
-				break;
-		}
-
-	}
 	
-	protected void listLabel(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String inputText = "Ajouter une étiquette";
 		LabelModel labels = new LabelModel();
 		
 		List<LabelBean> result = labels.getLabels();
-		
-		System.out.println("Dans Gets");
 		
 		request.setAttribute("labels", result);
 		request.setAttribute("input", inputText);
@@ -61,23 +39,19 @@ public class Etiquettes extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		LabelForm label = new LabelForm();
-		String result = label.addLabel(request);
-		System.out.println(result);
-		System.out.println("Dans Post");
+		label.addLabel(request);
 		
 		doGet(request, response);
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("dans delete ******");
-		//listLabel(request, response);
+		
 		String inputText = "Ajouter une étiquette";
 		LabelModel labels = new LabelModel();
 		
 		List<LabelBean> result = labels.getLabels();
-		
-		System.out.println("Dans Gets");
 		
 		request.setAttribute("labels", result);
 		request.setAttribute("input", inputText);

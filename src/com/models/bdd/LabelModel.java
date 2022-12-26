@@ -26,10 +26,12 @@ public class LabelModel {
 			while (result.next()) {
 				String title = result.getString("title");
 				String code = result.getString("code");
+				int id = result.getInt("labelid");
 				
 				LabelBean label = new LabelBean();
 				label.setTitle(title);
 				label.setCode(code);
+				label.setId(id);
 				
 				ListLabels.add(label);
 			}
@@ -56,5 +58,26 @@ public class LabelModel {
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
+	}
+	
+	public String deleteLabel(String id) {
+		
+		String result;
+		
+		try {
+			String query = "DELETE FROM Labels WHERE Labels.labelid ="+ id +";";
+			
+			PreparedStatement preparedStatement = connexion.prepareStatement(query);
+			
+			preparedStatement.execute();
+			
+			result = "Suppression avec succès !";
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+			result = "Erreur de requete !!!";
+		}
+		
+		return result;
 	}
 }
