@@ -27,7 +27,7 @@
                     	<c:out value="${user.fname.toUpperCase().charAt(0)}"/><c:out value="${user.lname.toUpperCase().charAt(0)}"/>
                     </span>
                     <div>
-                    	<h2>${user.fname} ${user.lname.toUpperCase()}</h2>
+                    	<h2><a href="utilisateur?userid=${user.userid}">${user.fname} ${user.lname.toUpperCase()}</a></h2>
                     	<p>${user.job}</p>
                     </div>
                 </div>

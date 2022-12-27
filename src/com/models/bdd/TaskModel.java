@@ -23,9 +23,11 @@ public class TaskModel {
 			
 			while (result.next()) {
 				String title = result.getString("title");
+				int id = result.getInt("taskid");
 				
 				TaskBean task = new TaskBean();
 				task.setTitle(title);
+				task.setTaskid(id);;
 				
 				taskList.add(task);
 			}

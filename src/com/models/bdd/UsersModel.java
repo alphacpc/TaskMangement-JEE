@@ -27,12 +27,14 @@ public class UsersModel {
 			result = connexion.createStatement().executeQuery("SELECT * FROM Users;");
 			
 			while (result.next()) {
+				int userid = result.getInt("userid");
 				String fname = result.getString("fname");
 				String lname = result.getString("lname");
 				String email = result.getString("email");
 				String profession = result.getString("profession");
 				
 				User user = new User();
+				user.setUserid(userid);
 				user.setFname(fname);
 				user.setLname(lname);
 				user.setEmail(email);

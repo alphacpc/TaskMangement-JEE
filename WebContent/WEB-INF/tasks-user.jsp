@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="divMinDetail">
-                        <a href="#" class="title"><c:out value="${task.title}" /></a>
+                        <a href="/TasksManagement/tache?taskid=${task.taskid}" class="title"><c:out value="${task.title}" /></a>
                         <p>Lorem ipsum tango nan minsu alphacpc ipsum suki sanu maxo ...</p>
                     </div>
 
