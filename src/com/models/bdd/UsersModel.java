@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.models.beans.User;
 import com.models.bdd.ConnectDB;
 
@@ -71,6 +72,30 @@ public class UsersModel {
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
+	}
+	
+	public User getUserById(String userid) {
+		User user = new User();
+	
+		try {
+			
+			String query = "SELECT * FROM Users WHERE userid="+ userid +";";
+						
+			ResultSet result = connexion.createStatement().executeQuery(query);
+
+			while (result.next()) {
+				user.setFname(result.getString("fname"));
+				user.setLname(result.getString("lname"));
+				user.setEmail(result.getString("email"));
+				user.setJob(result.getString("profession"));
+			}
+				
+		}
+		catch(SQLException e){
+			System.out.println(e);
+		}
+		
+		return user;
 	}
 	
 	

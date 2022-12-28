@@ -131,3 +131,48 @@ body{
 }
 
 
+
+/* DETAIL USER */
+.divDetail{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 0 50px 0;
+}
+
+.divDetailItem{
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.divDetailItem span{
+    font-size: 20px;
+    width: 300px;
+}
+
+.divDetailItem input,
+.divDetailItem textarea{
+    outline: 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+}
+
+.divDetailItem textarea{
+    height: 15vh;
+    width: 500px;
+    resize: none;
+}
+
+
+.btnSave button{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    background-color: greenyellow;
+    margin-top: 20px;
+}

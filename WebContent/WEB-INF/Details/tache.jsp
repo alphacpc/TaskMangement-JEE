@@ -23,7 +23,26 @@
 		
 
         <div class="divContent">
-            
+            <div class="divDetail">
+                <div class="divDetailItem">
+                    <span>Titre</span>
+                    <input type="text" value="${task.title}">
+                </div>
+
+                <div class="divDetailItem">
+                    <span>Description</span>
+                    <textarea>${task.desc}</textarea>
+                </div>
+                
+                <div class="divDetailItem">
+                    <span>Utilisateur</span>
+                    <input type="text" value="${task.title}">
+                </div>
+
+                <div class="btnSave">
+                    <button>Modifier</button>
+                </div>
+            </div>
         </div>
 		<script src="./assets/js/app.js"></script>
     </body>

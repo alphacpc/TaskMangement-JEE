@@ -23,7 +23,32 @@
 		
 
         <div class="divContent">
-            
+        
+            <div class="divDetail">
+                <div class="divDetailItem">
+                    <span>Nom de famille</span>
+                    <input type="text" value="${user.lname}">
+                </div>
+
+                <div class="divDetailItem">
+                    <span>Prénom</span>
+                    <input type="text" value="${user.fname}">
+                </div>
+
+                <div class="divDetailItem">
+                    <span>Adresse email</span>
+                    <input type="text" value="${user.email}">
+                </div>
+
+                <div class="divDetailItem">
+                    <span>Profession</span>
+                    <input type="text" value="${user.job}">
+                </div>
+
+                <div class="btnSave">
+                    <button>Modifier</button>
+                </div>
+            </div>
         </div>
 		<script src="./assets/js/app.js"></script>
     </body>

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.models.beans.TaskBean;
+import com.models.beans.User;
 
 
 public class TaskModel {
@@ -53,6 +54,7 @@ public class TaskModel {
 				
 				TaskBean task = new TaskBean();
 				task.setTitle(title);
+				task.setTaskid(result.getInt("taskid"));
 				
 				taskList.add(task);
 			}
@@ -63,4 +65,28 @@ public class TaskModel {
 		
 		return taskList;
 	}
+	
+	
+	public TaskBean getTaskById(String userid) {
+		TaskBean task = new TaskBean();
+	
+		try {
+			
+			String query = "SELECT * FROM Tasks WHERE taskid="+ userid +";";
+						
+			ResultSet result = connexion.createStatement().executeQuery(query);
+
+			while (result.next()) {
+				task.setTitle(result.getString("title"));
+				task.setDesc(result.getString("description"));
+			}
+				
+		}
+		catch(SQLException e){
+			System.out.println(e);
+		}
+		
+		return task;
+	}
+	
 }
