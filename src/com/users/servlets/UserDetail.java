@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.controller.forms.UserForm;
 import com.models.bdd.UsersModel;
 import com.models.beans.User;
 
@@ -29,7 +30,18 @@ public class UserDetail extends HttpServlet {
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		User user = new User();
+		
+		String userid = request.getParameter("userid");
+		user.setFname(request.getParameter("fname"));
+		user.setLname(request.getParameter("lname"));
+		user.setEmail(request.getParameter("email"));
+		user.setJob(request.getParameter("job"));
+		
+		UsersModel userModel = new UsersModel();
+		userModel.updateUser(user, userid);		
+		
 		doGet(request, response);
 	}
 

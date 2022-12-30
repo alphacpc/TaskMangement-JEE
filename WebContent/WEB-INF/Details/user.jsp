@@ -48,7 +48,7 @@
 
                     <div class="divDetailItem">
                         <span>Profession</span>
-                        <input type="text" name="profession" value="${user.job}">
+                        <input type="text" name="job" value="${user.job}">
                     </div>
 
                     <div class="btnSave">

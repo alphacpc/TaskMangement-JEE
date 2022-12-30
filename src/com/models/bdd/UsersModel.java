@@ -64,8 +64,6 @@ public class UsersModel {
 			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.setString(5, user.getJob());
 			preparedStatement.setString(6, user.getPwd());
-			System.out.println("Dans addUser Models");
-			System.out.println(user.getEmail());
 			
 			preparedStatement.execute();
 			
@@ -105,8 +103,17 @@ public class UsersModel {
 		String result;
 		
 		try {
-			String query = "DELETE FROM Users WHERE Users.userid ="+ id +";";
 			
+			try {
+				String query_task = "DELETE FROM Tasks WHERE Tasks.user_id_task ="+ id +";";
+				PreparedStatement preparedStatement_task = connexion.prepareStatement(query_task);
+				preparedStatement_task.execute();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			
+			String query = "DELETE FROM Users WHERE Users.userid ="+ id +";";
 			PreparedStatement preparedStatement = connexion.prepareStatement(query);
 			
 			preparedStatement.execute();
@@ -121,6 +128,32 @@ public class UsersModel {
 		return result;
 	}
 	
+	
+	public String updateUser(User user, String userid) {
+		
+		String result;
+		
+		try {
+			String query = "UPDATE Users SET fname = ?, lname = ?, email = ?, profession = ? WHERE Users.userid ="+ userid +";";
+			
+			PreparedStatement preparedStatement = connexion.prepareStatement(query);
+			
+			preparedStatement.setString(1, user.getFname());
+			preparedStatement.setString(2, user.getLname());
+			preparedStatement.setString(3, user.getEmail());
+			preparedStatement.setString(4, user.getJob());
+			
+			preparedStatement.execute();
+			
+			result = "Mis à jour avec succès !";
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+			result = "Erreur de requete !!!";
+		}
+		
+		return result;
+	}
 	
 	
 }
