@@ -27,7 +27,6 @@ public class TasksUsers extends HttpServlet {
 		List<TaskBean> result = tasks.getUserTasks(userid);
 		
 		request.setAttribute("tasks", result);
-		
 		request.getRequestDispatcher("/WEB-INF/tasks-user.jsp").forward(request, response);
 	}
 

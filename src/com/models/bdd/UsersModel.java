@@ -84,6 +84,7 @@ public class UsersModel {
 			ResultSet result = connexion.createStatement().executeQuery(query);
 
 			while (result.next()) {
+				user.setUserid(result.getInt("userid"));
 				user.setFname(result.getString("fname"));
 				user.setLname(result.getString("lname"));
 				user.setEmail(result.getString("email"));
@@ -96,6 +97,28 @@ public class UsersModel {
 		}
 		
 		return user;
+	}
+	
+	
+	public String deleteUser(String id) {
+		
+		String result;
+		
+		try {
+			String query = "DELETE FROM Users WHERE Users.userid ="+ id +";";
+			
+			PreparedStatement preparedStatement = connexion.prepareStatement(query);
+			
+			preparedStatement.execute();
+			
+			result = "Suppression avec succès !";
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+			result = "Erreur de requete !!!";
+		}
+		
+		return result;
 	}
 	
 	

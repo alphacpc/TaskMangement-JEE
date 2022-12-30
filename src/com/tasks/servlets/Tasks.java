@@ -32,8 +32,6 @@ public class Tasks extends HttpServlet {
 		TaskModel task = new TaskModel() ;
 		List<TaskBean> result =  task.getTasks();
 		
-		System.out.println(result);
-		
 		request.setAttribute("tasks", result);
 		request.setAttribute("input", inputText);
 		request.getRequestDispatcher("/WEB-INF/tasks.jsp").forward(request, response);

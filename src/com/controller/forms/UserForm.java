@@ -16,7 +16,6 @@ public class UserForm {
 		new_user.setJob(request.getParameter("job"));
 		new_user.setPwd(request.getParameter("pwd"));
 		
-		System.out.println("Premier phase de test not working");
 		
 		UsersModel new_user_model = new UsersModel();
 		new_user_model.addUserModel(new_user);

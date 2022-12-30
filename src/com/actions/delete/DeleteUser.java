@@ -2,40 +2,38 @@ package com.actions.delete;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.models.bdd.LabelModel;
+import com.models.bdd.UsersModel;
 
-@WebServlet(urlPatterns = { "/delete/label" })
-public class DeleteLabel extends HttpServlet {
+
+@WebServlet(urlPatterns = { "/delete/utilisateur" })
+public class DeleteUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-    public DeleteLabel() {
+    public DeleteUser() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doDelete(request, response);
-		
 	}
 
-
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String labelid = request.getParameter("id");
-		LabelModel label = new LabelModel();
 	
-		label.deleteLabel(labelid);
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String userid = request.getParameter("userid");
+		UsersModel user = new UsersModel();
+	
+		user.deleteUser(userid);
 		
-		response.getWriter().append("Suppression avec succes de : "+ labelid).append(request.getContextPath());
+		response.sendRedirect("/TasksManagement/utilisateurs");
+		
+		response.getWriter().append("Suppression avec succes de : "+ userid).append(request.getContextPath());
 	}
 
 }

@@ -133,11 +133,39 @@ body{
 
 
 /* DETAIL USER */
+form.divDetail{
+    background: none !important;
+}
 .divDetail{
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 100px 0 50px 0;
+    padding: 50px 0 50px 0;
+}
+
+.divWrapper{
+    display: flex !important;
+    width: 100%;
+}
+
+.divDelete{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divDelete h2{
+    font-size: 35px;
+}
+
+.divDelete a{
+    background: #F05;
+    border-radius: 4px;
+    color: #FFF;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 10px;
 }
 
 .divDetailItem{

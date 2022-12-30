@@ -15,7 +15,6 @@ import com.models.beans.User;
 public class UserDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
     public UserDetail() {
         super();
     }

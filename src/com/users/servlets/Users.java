@@ -27,7 +27,6 @@ public class Users extends HttpServlet {
 		UsersModel users = new UsersModel() ;
 		List<User> result =  users.getUsers();
 		
-		System.out.println(result);
 		request.setAttribute("result", result);
 		request.setAttribute("input", inputText);
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
