@@ -23,24 +23,33 @@
 		
 
         <div class="divContent">
-            <div class="divDetail">
-                <div class="divDetailItem">
-                    <span>Titre</span>
-                    <input type="text" value="${task.title}">
-                </div>
 
-                <div class="divDetailItem">
-                    <span>Description</span>
-                    <textarea>${task.desc}</textarea>
-                </div>
-                
-                <div class="divDetailItem">
-                    <span>Utilisateur</span>
-                    <input type="text" value="${task.title}">
-                </div>
+            <div class="divWrapper">
 
-                <div class="btnSave">
-                    <button>Modifier</button>
+                <div class="divDelete">
+                    <h2>Detail : <c:out value="${task.title.toUpperCase()}"/></h2>
+                    <a href="delete/task?taskid=${task.taskid}">Supprimer</a>
+                </div>
+            
+                <div class="divDetail">
+                    <div class="divDetailItem">
+                        <span>Titre</span>
+                        <input type="text" value="${task.title}">
+                    </div>
+
+                    <div class="divDetailItem">
+                        <span>Description</span>
+                        <textarea>${task.desc}</textarea>
+                    </div>
+                    
+                    <div class="divDetailItem">
+                        <span>Utilisateur</span>
+                        <input type="text" value="${task.title}">
+                    </div>
+
+                    <div class="btnSave">
+                        <button>Modifier</button>
+                    </div>
                 </div>
             </div>
         </div>

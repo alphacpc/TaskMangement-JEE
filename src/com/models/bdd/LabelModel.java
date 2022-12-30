@@ -43,6 +43,30 @@ public class LabelModel {
 		return ListLabels;
 	}
 	
+	public List<LabelBean> getLabelsMin() {
+		
+		List<LabelBean> ListLabels = new ArrayList<LabelBean>();
+		ResultSet result;
+		
+		try {
+			
+			result = connexion.createStatement().executeQuery("SELECT * FROM Labels;");
+			
+			while (result.next()) {
+				LabelBean label = new LabelBean();
+				label.setTitle(result.getString("title"));
+				label.setId(result.getInt("labelid"));
+				
+				ListLabels.add(label);
+			}
+		}
+		catch(SQLException e){
+			System.out.println(e);
+		}
+		
+		return ListLabels;
+	}
+	
 	public void addLabelModel(LabelBean label){
 		
 		try {

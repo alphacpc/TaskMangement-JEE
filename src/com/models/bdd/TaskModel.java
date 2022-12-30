@@ -1,6 +1,7 @@
 package com.models.bdd;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,6 +41,8 @@ public class TaskModel {
 		return taskList;
 	}
 	
+	
+	
 	public List<TaskBean> getUserTasks(String userid){
 		
 		List<TaskBean> taskList = new ArrayList<TaskBean>();
@@ -50,10 +53,9 @@ public class TaskModel {
 			result = connexion.createStatement().executeQuery("SELECT * FROM Tasks WHERE user_id_task="+ userid +";");
 			
 			while (result.next()) {
-				String title = result.getString("title");
 				
 				TaskBean task = new TaskBean();
-				task.setTitle(title);
+				task.setTitle(result.getString("title"));
 				task.setTaskid(result.getInt("taskid"));
 				
 				taskList.add(task);
@@ -77,6 +79,7 @@ public class TaskModel {
 			ResultSet result = connexion.createStatement().executeQuery(query);
 
 			while (result.next()) {
+				task.setTaskid(result.getInt("taskid"));
 				task.setTitle(result.getString("title"));
 				task.setDesc(result.getString("description"));
 			}
@@ -87,6 +90,48 @@ public class TaskModel {
 		}
 		
 		return task;
+	}
+	
+	
+	public String deleteTask(String id) {
+		
+		String result;
+		
+		try {
+			String query = "DELETE FROM Tasks WHERE Tasks.taskid ="+ id +";";
+			
+			PreparedStatement preparedStatement = connexion.prepareStatement(query);
+			preparedStatement.execute();
+			
+			System.out.println(id);
+			
+			result = "Suppression avec succès !";
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+			result = "Erreur de requete !!!";
+		}
+		
+		return result;
+	}
+	
+	public void addTaskModel(TaskBean task){
+		
+		try {
+			String query = "INSERT INTO Tasks(taskid, title, description, label, user_id_task) VALUES(?, ?, ?, ?, ?);";
+			PreparedStatement preparedStatement = connexion.prepareStatement(query);
+			
+			preparedStatement.setString(1, null);
+			preparedStatement.setString(2, task.getTitle());
+			preparedStatement.setString(3, task.getDesc());
+			preparedStatement.setString(4, task.getLabelid());
+			preparedStatement.setString(5, task.getUserid());
+			
+			preparedStatement.execute();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 	}
 	
 }

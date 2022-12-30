@@ -28,18 +28,37 @@ public class UsersModel {
 			result = connexion.createStatement().executeQuery("SELECT * FROM Users;");
 			
 			while (result.next()) {
-				int userid = result.getInt("userid");
-				String fname = result.getString("fname");
-				String lname = result.getString("lname");
-				String email = result.getString("email");
-				String profession = result.getString("profession");
 				
 				User user = new User();
-				user.setUserid(userid);
-				user.setFname(fname);
-				user.setLname(lname);
-				user.setEmail(email);
-				user.setJob(profession);
+				user.setUserid(result.getInt("userid"));
+				user.setFname(result.getString("fname"));
+				user.setLname(result.getString("lname"));
+				user.setEmail(result.getString("email"));
+				user.setJob(result.getString("profession"));
+				
+				users.add(user);
+			}
+		}
+		catch(SQLException e){
+			System.out.println(e);
+		}
+		
+		return users;
+	}
+	
+	public List<User> getUsersMin(){
+		List<User> users = new ArrayList<User>();
+		ResultSet result;
+			
+		try {
+			
+			result = connexion.createStatement().executeQuery("SELECT * FROM Users;");
+			
+			while (result.next()) {
+				
+				User user = new User();
+				user.setUserid(result.getInt("userid"));
+				user.setEmail(result.getString("email"));
 				
 				users.add(user);
 			}

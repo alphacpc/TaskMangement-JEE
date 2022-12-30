@@ -15,21 +15,27 @@
 
         <div class="divFormGroup">
             <label for="">Description</label>
-            <textarea name=desc"" placeholder="Message..."></textarea>
+            <textarea name="desc" placeholder="Message..."></textarea>
         </div>
 
         <div class="divFormGroup">
-            <label for="">Etiquettes</label>
-            <input name="label" type="text" placeholder="Mise en relation">
+            <label for="">Etiquette</label>
+            <select name="labelid">
+                <option >Choisir une étiquette</option>
+                <c:forEach var="label" items="${labels}">
+                    <option value="${label.id}"><c:out value="${label.title}"/></option>
+                </c:forEach>
+            </select>
         </div>
 
         <div class="divFormGroup">
             <label for="">Affecté à</label>
-            <input type="text" placeholder="Mise en relation">
-            <div class="users">
-                <span>Ndambé fall</span>
-                <span>Awa Diop</span>
-            </div>
+            <select name="userid">
+                <option >Choisir un utilisateur</option>
+                <c:forEach var="user" items="${users}">
+                    <option value="${user.userid}"><c:out value="${user.email}"/></option>
+                </c:forEach>
+            </select>
         </div>
 
         <button type="submit">Enregistrer</button>
