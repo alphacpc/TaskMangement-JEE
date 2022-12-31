@@ -38,11 +38,11 @@
                     <tbody>
                     	<c:forEach var="label" items="${labels}">
                         <tr>
-                            <td><a href="delete/label?id=${label.id}" target="_blank" class="btn-icon">-</a></td>
+                            <td><a href="delete/label?id=${label.id}" class="btn-icon">-</a></td>
                             <td><c:out value="${label.title}"/></td>
                             <td><c:out value="${label.code}"/></td>
                             <td>red</td>
-                            <td><a href="" class="btn-edit">Modifier</a></td>
+                            <td><a href="etiquette?id=${label.id}" class="btn-edit">Modifier</a></td>
                         </tr>
                         </c:forEach>
                         

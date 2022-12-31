@@ -35,7 +35,7 @@ public class DeleteLabel extends HttpServlet {
 	
 		label.deleteLabel(labelid);
 		
-		response.getWriter().append("Suppression avec succes de : "+ labelid).append(request.getContextPath());
+		response.sendRedirect("/TasksManagement/etiquettes");
 	}
 
 }

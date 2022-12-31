@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.models.beans.LabelBean;
+import com.models.beans.TaskBean;
 import com.models.beans.User;
 
 public class LabelModel {
@@ -67,6 +68,29 @@ public class LabelModel {
 		return ListLabels;
 	}
 	
+	public LabelBean getLabelById(String labelid) {
+		LabelBean label = new LabelBean();
+		
+		try {
+			
+			String query = "SELECT * FROM Labels WHERE labelid="+ labelid +";";
+						
+			ResultSet result = connexion.createStatement().executeQuery(query);
+
+			while (result.next()) {
+				label.setTitle(result.getString("title"));
+				label.setCode(result.getString("code"));
+			}
+				
+		}
+		catch(SQLException e){
+			System.out.println(e);
+		}
+		
+		return label;
+	}
+	
+	
 	public void addLabelModel(LabelBean label){
 		
 		try {
@@ -104,4 +128,30 @@ public class LabelModel {
 		
 		return result;
 	}
+	
+	
+	public String updateLabel(LabelBean label, String labelid) {
+		
+		String result;
+		
+		try {
+			String query = "UPDATE Labels SET title = ?, code = ? WHERE Labels.labelid ="+ labelid +";";
+			
+			PreparedStatement preparedStatement = connexion.prepareStatement(query);
+			
+			preparedStatement.setString(1, label.getTitle());
+			preparedStatement.setString(2, label.getCode());
+			
+			preparedStatement.execute();
+			
+			result = "Mis à jour avec succès !";
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+			result = "Erreur de requete !!!";
+		}
+		
+		return result;
+	}
+	
 }
