@@ -180,7 +180,8 @@ form.divDetail{
 }
 
 .divDetailItem input,
-.divDetailItem textarea{
+.divDetailItem textarea,
+.divDetailItem select{
     outline: 0;
     padding: 10px;
     font-size: 16px;

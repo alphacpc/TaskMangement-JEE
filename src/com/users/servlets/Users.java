@@ -35,7 +35,6 @@ public class Users extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserForm user = new UserForm();
 		String result = user.addUser(request);
-		System.out.println(result);
 		doGet(request, response);
 	}
 

@@ -134,4 +134,31 @@ public class TaskModel {
 		}
 	}
 	
+	
+	public String updateTask(TaskBean task, String taskid) {
+		
+		String result;
+		
+		try {
+			String query = "UPDATE Tasks SET title = ?, description = ?, label = ?, user_id_task = ? WHERE Tasks.taskid ="+ taskid +";";
+			
+			PreparedStatement preparedStatement = connexion.prepareStatement(query);
+			
+			preparedStatement.setString(1, task.getTitle());
+			preparedStatement.setString(2, task.getDesc());
+			preparedStatement.setString(3, task.getLabelid());
+			preparedStatement.setString(4, task.getUserid());
+			
+			preparedStatement.execute();
+			
+			result = "Mis à jour avec succès !";
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+			result = "Erreur de requete !!!";
+		}
+		
+		return result;
+	}
+	
 }

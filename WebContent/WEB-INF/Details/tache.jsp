@@ -31,26 +31,39 @@
                     <a href="delete/task?taskid=${task.taskid}">Supprimer</a>
                 </div>
             
-                <div class="divDetail">
+                <form method="post" class="divDetail">
                     <div class="divDetailItem">
                         <span>Titre</span>
-                        <input type="text" value="${task.title}">
+                        <input type="text" name="title" value="${task.title}">
                     </div>
 
                     <div class="divDetailItem">
                         <span>Description</span>
-                        <textarea>${task.desc}</textarea>
+                        <textarea name="desc">${task.desc}</textarea>
                     </div>
                     
                     <div class="divDetailItem">
+                        <span>Etiquette</span>
+                        <select name="labelid">
+                            <c:forEach var="label" items="${labels}">
+                                <option value="${label.id}">${label.title}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
+                    <div class="divDetailItem">
                         <span>Utilisateur</span>
-                        <input type="text" value="${task.title}">
+                        <select name="userid">
+                            <c:forEach var="user" items="${users}">
+                                <option value="${user.userid}">${user.email}</option>
+                            </c:forEach>
+                        </select>
                     </div>
 
                     <div class="btnSave">
-                        <button>Modifier</button>
+                        <button type="submit">Modifier</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 		<script src="./assets/js/app.js"></script>
