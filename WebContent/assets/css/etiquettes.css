@@ -36,3 +36,9 @@ tbody tr .btn-edit{
     padding: 5px;
     border-radius: 4px;
 }
+
+
+.divEtiquette tbody td span.bg{
+    padding: 10px 50px;
+    border-radius: 0;
+}

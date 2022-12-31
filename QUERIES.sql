@@ -8,10 +8,10 @@ CREATE TABLE IF NOT EXISTS Users(
     lname varchar(100),
     email varchar(100),
     profession varchar(100),
+    profil varchar(10) NOT NULL DEFAULT 'visiteur',
     pwd varchar(255)
 );
 
-INSERT INTO `Users` (`userid`, `fname`, `lname`, `email`, `profession`, `pwd`) VALUES (NULL, 'alpha', 'diallo', 'alpha@test.sn', 'fullstack developer', 'passer123');
 
 INSERT INTO `Users` (`userid`, `fname`, `lname`, `email`, `profession`, `pwd`) VALUES 
     (NULL, 'alpha', 'diallo', 'alpha@test.sn', 'fullstack developer', 'passer123'),
@@ -25,19 +25,20 @@ CREATE TABLE IF NOT EXISTS Tasks(
     taskid int AUTO_INCREMENT PRIMARY KEY,
     title varchar(100),
     description varchar(250),
-    label varchar(100),
-    user_id_task int,
-    FOREIGN KEY (user_id_task) REFERENCES Users(userid)
+    labelid_task int,
+    userid_task int,
+    FOREIGN KEY (userid_task) REFERENCES Users(userid),
+    FOREIGN KEY (labelid_task) REFERENCES Labels(labelid)
 );
 
 
 
 INSERT INTO `Tasks` (`taskid`, `title`, `description`, `label`, `user_id_task`) VALUES 
-	(NULL, 'Page Etiquettes', 'Lorem ipusm bab sunu dio fhe miass nos ayga', 'Design', '3'),
-    (NULL, 'Portflio React', 'Lorem ipusm bab sunu dio fhe miass nos ayga', 'Developpement', '1'),
-    (NULL, 'Link Array list', 'Lorem ipusm bab sunu dio fhe miass nos ayga', 'Architecture', '1'),
-    (NULL, 'Memoire', 'Lorem ipusm bab sunu dio fhe miass nos ayga', 'ODC', '4'),
-    (NULL, 'Continuer mon Article', 'Lorem ipusm bab sunu dio fhe miass nos ayga', 'Design', '1');
+	(NULL, 'Page Etiquettes', 'Lorem ipusm bab sunu dio fhe miass nos ayga', '1', '1'),
+    (NULL, 'Portflio React', 'Lorem ipusm bab sunu dio fhe miass nos ayga', '1', '1'),
+    (NULL, 'Link Array list', 'Lorem ipusm bab sunu dio fhe miass nos ayga', '1', '1'),
+    (NULL, 'Memoire', 'Lorem ipusm bab sunu dio fhe miass nos ayga', '1', '1'),
+    (NULL, 'Continuer mon Article', 'Lorem ipusm bab sunu dio fhe miass nos ayga', '1', '1');
     
     
 CREATE TABLE IF NOT EXISTS Labels(

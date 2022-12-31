@@ -11,6 +11,10 @@
     z-index: 4;
 }
 
+.divOverlay.show{
+	display: flex;
+}
+
 form{
     background: #FFF;
     padding: 20px;

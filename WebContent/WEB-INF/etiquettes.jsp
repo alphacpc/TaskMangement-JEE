@@ -41,7 +41,7 @@
                             <td><a href="delete/label?id=${label.id}" class="btn-icon">-</a></td>
                             <td><c:out value="${label.title}"/></td>
                             <td><c:out value="${label.code}"/></td>
-                            <td>red</td>
+                            <td><span class="bg" content="${label.code}"></span></td>
                             <td><a href="etiquette?id=${label.id}" class="btn-edit">Modifier</a></td>
                         </tr>
                         </c:forEach>
@@ -52,6 +52,7 @@
 
         </div>
 		<script src="./assets/js/app.js"></script>
+		<script src="./assets/js/label.js"></script>
     </body>
 </html>
     
