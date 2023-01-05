@@ -2,7 +2,7 @@
 
 <div class="divFormLogin">
 
-    <form action="etiquettes" method="post">
+    <form action="connexion" method="post">
         <div class="divHeadForm">
             <h2>Formulaire de connexion</h2>
         </div>

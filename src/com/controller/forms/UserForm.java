@@ -22,4 +22,13 @@ public class UserForm {
 		
 		return "Création de compte de " + request.getParameter("email");
 	}
+	
+	
+	public User checkUser(HttpServletRequest request) {
+		
+		UsersModel userModel = new UsersModel();
+		
+		return userModel.connectUser(request.getParameter("email"), request.getParameter("pwd"));
+		
+	}
 }

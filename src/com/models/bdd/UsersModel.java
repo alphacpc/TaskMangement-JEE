@@ -175,4 +175,30 @@ public class UsersModel {
 	}
 	
 	
+	public User connectUser(String email, String pwd){
+		User user = new User();
+		
+		try {
+			
+			String query = "SELECT email, pwd FROM Users WHERE Users.email = '"+ email +"';";
+			ResultSet result = connexion.createStatement().executeQuery(query);
+			
+			while (result.next()) {
+				user.setPwd(result.getString("pwd"));
+				user.setEmail(result.getString("email"));
+			}
+			
+			
+			if(pwd == user.getPwd()) {
+				return user;
+			}
+		}
+		catch(SQLException e){
+			System.out.println(e);
+		}
+		
+		return user;
+		
+	}
+	
 }

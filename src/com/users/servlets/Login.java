@@ -7,25 +7,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.controller.forms.UserForm;
+import com.models.beans.User;
 
-@WebServlet("/")
+
+@WebServlet("/connexion")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
     public Login() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		UserForm userForm = new UserForm();
+		User user = userForm.checkUser(request);
+		
+		System.out.println(user.getEmail());
+		
+		if( user.getEmail() != null) {
+			response.sendRedirect("/TasksManagement/utilisateurs");
+		}else {
+			doGet(request, response);
+		}
 	}
 
 }

@@ -21,4 +21,20 @@
 .divContainerLogin form{
     padding: 20px;
     background: #FFF;
+    width: 450px;
+}
+
+.divFormGroup{
+    display: flex;
+    flex-direction: column;
+}
+
+.divFormGroup label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.divFormGroup input{
+    padding: 15px 5px !important;
+    font-size: 20px;
 }
