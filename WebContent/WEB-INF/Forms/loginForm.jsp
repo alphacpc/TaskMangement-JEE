@@ -9,7 +9,7 @@
 
         <div class="divFormGroup">
             <label for="">Adresse email</label>
-            <input name="email" type="text">
+            <input name="email" autocomplete="off" type="text">
         </div>
 
         <div class="divFormGroup">

@@ -72,6 +72,27 @@ public class UsersModel {
 	}
 	
 	
+	public User getUserTask(String userid){
+		User user = new User();
+		ResultSet result;
+			
+		try {
+			
+			result = connexion.createStatement().executeQuery("SELECT fname, lname FROM Users WHERE userid = "+ userid +";");
+			
+			while (result.next()) {
+				user.setFname(result.getString("fname"));
+				user.setLname(result.getString("lname"));
+			}
+		}
+		catch(SQLException e){
+			System.out.println(e);
+		}
+		
+		return user;
+	}
+	
+	
 	public void addUserModel(User user){
 		
 		try {

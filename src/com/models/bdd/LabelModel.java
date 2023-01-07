@@ -91,6 +91,26 @@ public class LabelModel {
 	}
 	
 	
+	public LabelBean getLabelTask(String labelid){
+		LabelBean label = new LabelBean();
+		ResultSet result;
+		
+		try {
+			
+			result = connexion.createStatement().executeQuery("SELECT title, code FROM Labels WHERE labelid = "+ labelid +";");
+			
+			while (result.next()) {
+				label.setTitle(result.getString("title"));
+				label.setCode(result.getString("code"));
+			}
+		}
+		catch(SQLException e){
+			System.out.println(e);
+		}
+		
+		return label;
+	}
+	
 	public void addLabelModel(LabelBean label){
 		
 		try {

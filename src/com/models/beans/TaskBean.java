@@ -1,6 +1,5 @@
 package com.models.beans;
 
-import java.util.ArrayList;
 
 public class TaskBean {
 	private int taskid;
@@ -8,6 +7,10 @@ public class TaskBean {
 	private String desc;
 	private String labelid;
 	private String userid;
+	private String fname;
+	private String lname;
+	private String label;
+	private String code;
 	
 	public String getTitle() {
 		return title;
@@ -38,6 +41,30 @@ public class TaskBean {
 	}
 	public void setUserid(String userid) {
 		this.userid = userid;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	public String getLname() {
+		return lname;
+	}
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	public String getLabel() {
+		return label;
+	}
+	public void setLabel(String label) {
+		this.label = label;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 	

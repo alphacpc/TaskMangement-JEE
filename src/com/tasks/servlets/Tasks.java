@@ -41,6 +41,18 @@ public class Tasks extends HttpServlet {
 			LabelModel labelModel = new LabelModel();
 			
 			List<TaskBean> result =  task.getTasks();
+			
+			for(TaskBean t : result) {
+				User user = userModel.getUserTask(t.getUserid());
+				LabelBean label = labelModel.getLabelTask(t.getLabelid());
+				
+				t.setFname(user.getFname());
+				t.setLname(user.getLname());
+				
+				t.setLabel(label.getTitle());
+				t.setCode(label.getCode());
+			}
+			
 			List<User> users = userModel.getUsersMin();
 			List<LabelBean> labels = labelModel.getLabelsMin();
 			

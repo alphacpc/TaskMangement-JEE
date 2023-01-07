@@ -24,15 +24,17 @@ public class TaskModel {
 			result = connexion.createStatement().executeQuery("SELECT * FROM Tasks;");
 			
 			while (result.next()) {
-				String title = result.getString("title");
-				int id = result.getInt("taskid");
-				
 				TaskBean task = new TaskBean();
-				task.setTitle(title);
-				task.setTaskid(id);;
+				
+				task.setTitle(result.getString("title"));
+				task.setTaskid(result.getInt("taskid"));
+				task.setDesc(result.getString("description"));
+				task.setUserid(result.getString("userid_task"));
+				task.setLabelid(result.getString("labelid_task"));
 				
 				taskList.add(task);
 			}
+			
 		}
 		catch(SQLException e){
 			System.out.println(e);
@@ -57,6 +59,9 @@ public class TaskModel {
 				TaskBean task = new TaskBean();
 				task.setTitle(result.getString("title"));
 				task.setTaskid(result.getInt("taskid"));
+				task.setDesc(result.getString("description"));
+				task.setUserid(result.getString("userid_task"));
+				task.setLabelid(result.getString("labelid_task"));
 				
 				taskList.add(task);
 			}
