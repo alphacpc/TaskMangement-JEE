@@ -6,6 +6,7 @@ public class User {
 	private String email;
 	private String job;
 	private String pwd;
+	private String profil;
 	private int userid;
 	
 	public String getFname() {
@@ -43,6 +44,12 @@ public class User {
 	}
 	public void setUserid(int userid) {
 		this.userid = userid;
+	}
+	public String getProfil() {
+		return profil;
+	}
+	public void setProfil(String profil) {
+		this.profil = profil;
 	}
 	
 	

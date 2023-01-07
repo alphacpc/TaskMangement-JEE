@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.controller.forms.UserForm;
 import com.models.beans.User;
@@ -21,18 +22,37 @@ public class Login extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("profil") != null) {
+			if(session.getAttribute("profil").equals("admin")) {
+				response.sendRedirect("/TasksManagement/utilisateurs");
+			}else {
+				response.sendRedirect("/TasksManagement/taches");
+			}
+		}else {
+			request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		UserForm userForm = new UserForm();
 		User user = userForm.checkUser(request);
-		
-		System.out.println(user.getEmail());
-		
-		if( user.getEmail() != null) {
-			response.sendRedirect("/TasksManagement/utilisateurs");
+	
+		if( user.getEmail() != null && user.getProfil() != null) {
+			
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("profil", user.getProfil());
+			session.setAttribute("email", user.getEmail());
+			session.setAttribute("userid", user.getUserid());
+			
+			if(user.getProfil().equals("admin")) {
+				response.sendRedirect("/TasksManagement/utilisateurs");
+			}else {
+				response.sendRedirect("/TasksManagement/taches");
+			}
+			
 		}else {
 			doGet(request, response);
 		}

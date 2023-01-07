@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.models.bdd.TaskModel;
 import com.models.beans.TaskBean;
@@ -22,12 +23,22 @@ public class TasksUsers extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userid = request.getParameter("userid");
-		TaskModel tasks = new TaskModel();
-		List<TaskBean> result = tasks.getUserTasks(userid);
 		
-		request.setAttribute("tasks", result);
-		request.getRequestDispatcher("/WEB-INF/tasks-user.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		
+		if( session.getAttribute("profil") != null) {
+			TaskModel tasks = new TaskModel();
+			List<TaskBean> result = tasks.getUserTasks((int) session.getAttribute("userid"));
+			
+			request.setAttribute("profil", session.getAttribute("profil"));
+			request.setAttribute("tasks", result);
+			request.getRequestDispatcher("/WEB-INF/tasks-user.jsp").forward(request, response);
+			
+		}else {
+			response.sendRedirect("/TasksManagement/connexion");
+		}
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

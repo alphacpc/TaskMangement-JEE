@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.models.bdd.LabelModel;
 import com.models.bdd.TaskModel;
@@ -28,20 +29,29 @@ public class Task extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
 		
-		String taskid = request.getParameter("taskid");
-		TaskModel taskModel = new TaskModel();
-		UsersModel userModel = new UsersModel();
-		LabelModel labelModel = new LabelModel();
-		TaskBean task = taskModel.getTaskById(taskid);
+		if(session.getAttribute("profil") != null) {
+			String taskid = request.getParameter("taskid");
+			TaskModel taskModel = new TaskModel();
+			UsersModel userModel = new UsersModel();
+			LabelModel labelModel = new LabelModel();
+			TaskBean task = taskModel.getTaskById(taskid);
+			
+			List<User> users = userModel.getUsersMin();
+			List<LabelBean> labels = labelModel.getLabelsMin();
+			
+			request.setAttribute("profil", session.getAttribute("profil"));
+			request.setAttribute("users", users);
+			request.setAttribute("labels", labels);
+			request.setAttribute("task", task);
+			request.getRequestDispatcher("/WEB-INF/Details/tache.jsp").forward(request, response);
+		}
 		
-		List<User> users = userModel.getUsersMin();
-		List<LabelBean> labels = labelModel.getLabelsMin();
-		
-		request.setAttribute("users", users);
-		request.setAttribute("labels", labels);
-		request.setAttribute("task", task);
-		request.getRequestDispatcher("/WEB-INF/Details/tache.jsp").forward(request, response);
+		else {
+			response.sendRedirect("/TasksManagement/connexion");
+		}
 	}
 
 

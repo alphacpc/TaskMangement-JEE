@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.swing.border.EmptyBorder;
 
 import com.controller.forms.UserForm;
 import com.models.beans.User;
@@ -22,19 +24,28 @@ public class Users extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String inputText = "Ajouter un utilisateur";
 		
-		UsersModel users = new UsersModel() ;
-		List<User> result =  users.getUsers();
+		HttpSession session = request.getSession();
 		
-		request.setAttribute("result", result);
-		request.setAttribute("input", inputText);
-		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+		if(session.getAttribute("profil") != null){
+			String inputText = "Ajouter un utilisateur";
+			
+			UsersModel users = new UsersModel();
+			List<User> result =  users.getUsers();
+			
+			request.setAttribute("profil", session.getAttribute("profil"));
+			request.setAttribute("result", result);
+			request.setAttribute("input", inputText);
+			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+		}
+		else {
+			response.sendRedirect("/TasksManagement/connexion");
+		}		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserForm user = new UserForm();
-		String result = user.addUser(request);
+		user.addUser(request);
 		doGet(request, response);
 	}
 

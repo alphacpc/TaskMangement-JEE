@@ -52,13 +52,14 @@ public class UsersModel {
 			
 		try {
 			
-			result = connexion.createStatement().executeQuery("SELECT * FROM Users;");
+			result = connexion.createStatement().executeQuery("SELECT userid, email, profession FROM Users;");
 			
 			while (result.next()) {
 				
 				User user = new User();
 				user.setUserid(result.getInt("userid"));
 				user.setEmail(result.getString("email"));
+				user.setJob(result.getString("profession"));
 				
 				users.add(user);
 			}
@@ -179,26 +180,28 @@ public class UsersModel {
 		User user = new User();
 		
 		try {
-			
-			String query = "SELECT email, pwd FROM Users WHERE Users.email = '"+ email +"';";
+			String query = "SELECT userid, email, pwd, profil FROM Users WHERE Users.email = '"+ email +"';";
 			ResultSet result = connexion.createStatement().executeQuery(query);
 			
 			while (result.next()) {
-				user.setPwd(result.getString("pwd"));
+				user.setUserid(result.getInt("userid"));
 				user.setEmail(result.getString("email"));
+				user.setProfil(result.getString("profil"));
+				user.setPwd(result.getString("pwd"));
 			}
 			
-			
-			if(pwd == user.getPwd()) {
+			if(pwd.toString().equals(user.getPwd())) {
 				return user;
+			}else {
+				return new User();
 			}
+
 		}
 		catch(SQLException e){
 			System.out.println(e);
 		}
 		
 		return user;
-		
 	}
 	
 }

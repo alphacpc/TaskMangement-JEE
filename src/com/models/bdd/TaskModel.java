@@ -43,14 +43,14 @@ public class TaskModel {
 	
 	
 	
-	public List<TaskBean> getUserTasks(String userid){
+	public List<TaskBean> getUserTasks(int userid){
 		
 		List<TaskBean> taskList = new ArrayList<TaskBean>();
 		ResultSet result;
 			
 		try {
 			
-			result = connexion.createStatement().executeQuery("SELECT * FROM Tasks WHERE user_id_task="+ userid +";");
+			result = connexion.createStatement().executeQuery("SELECT * FROM Tasks WHERE userid_task="+ userid +";");
 			
 			while (result.next()) {
 				
@@ -118,7 +118,7 @@ public class TaskModel {
 	public void addTaskModel(TaskBean task){
 		
 		try {
-			String query = "INSERT INTO Tasks(taskid, title, description, label, user_id_task) VALUES(?, ?, ?, ?, ?);";
+			String query = "INSERT INTO Tasks(taskid, title, description, labelid_task, userid_task) VALUES(?, ?, ?, ?, ?);";
 			PreparedStatement preparedStatement = connexion.prepareStatement(query);
 			
 			preparedStatement.setString(1, null);
@@ -140,7 +140,7 @@ public class TaskModel {
 		String result;
 		
 		try {
-			String query = "UPDATE Tasks SET title = ?, description = ?, label = ?, user_id_task = ? WHERE Tasks.taskid ="+ taskid +";";
+			String query = "UPDATE Tasks SET title = ?, description = ?, labelid_task = ?, userid_task = ? WHERE Tasks.taskid ="+ taskid +";";
 			
 			PreparedStatement preparedStatement = connexion.prepareStatement(query);
 			

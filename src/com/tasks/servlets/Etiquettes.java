@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.controller.forms.LabelForm;
 import com.models.bdd.LabelModel;
@@ -25,15 +26,23 @@ public class Etiquettes extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+
+		if(session.getAttribute("profil") != null) {
+			String inputText = "Ajouter une étiquette";
+			LabelModel labels = new LabelModel();
+			List<LabelBean> result = labels.getLabels();
+			
+			request.setAttribute("profil", session.getAttribute("profil"));
+			request.setAttribute("labels", result);
+			request.setAttribute("input", inputText);
+			request.getRequestDispatcher("/WEB-INF/etiquettes.jsp").forward(request, response);
+		}
 		
-		String inputText = "Ajouter une étiquette";
-		LabelModel labels = new LabelModel();
-		
-		List<LabelBean> result = labels.getLabels();
-		
-		request.setAttribute("labels", result);
-		request.setAttribute("input", inputText);
-		request.getRequestDispatcher("/WEB-INF/etiquettes.jsp").forward(request, response);
+		else {
+			response.sendRedirect("/TasksManagement/connexion");
+		}
 
 	}
 

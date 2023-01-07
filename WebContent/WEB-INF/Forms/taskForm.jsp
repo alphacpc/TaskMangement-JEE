@@ -33,7 +33,7 @@
             <select name="userid">
                 <option >Choisir un utilisateur</option>
                 <c:forEach var="user" items="${users}">
-                    <option value="${user.userid}"><c:out value="${user.email}"/></option>
+                    <option value="${user.userid}"><c:out value="${user.email}"/> (<c:out value="${user.job}"/>)</option>
                 </c:forEach>
             </select>
         </div>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
  
 <!DOCTYPE html>
@@ -31,7 +30,7 @@
                             <th></th>
                             <th>Nom</th>
                             <th>Code couleur</th>
-                            <th>Exemple</th>
+                            <th>Aperçu</th>
                             <th>Action</th>
                         </tr>
                     </thead>
