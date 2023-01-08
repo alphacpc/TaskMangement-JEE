@@ -1,6 +1,9 @@
 package com.users.servlets;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.border.EmptyBorder;
 
 import com.controller.forms.UserForm;
 import com.models.beans.User;
@@ -32,7 +34,7 @@ public class Users extends HttpServlet {
 			
 			UsersModel users = new UsersModel();
 			List<User> result =  users.getUsers();
-			
+				
 			request.setAttribute("profil", session.getAttribute("profil"));
 			request.setAttribute("result", result);
 			request.setAttribute("input", inputText);

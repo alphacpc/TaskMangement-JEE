@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,8 +124,12 @@ public class TaskModel {
 	
 	public void addTaskModel(TaskBean task){
 		
+		LocalDateTime myDateObj = LocalDateTime.now();
+	    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    String formattedDate = myDateObj.format(myFormatObj);
+		
 		try {
-			String query = "INSERT INTO Tasks(taskid, title, description, labelid_task, userid_task) VALUES(?, ?, ?, ?, ?);";
+			String query = "INSERT INTO Tasks(taskid, title, description, labelid_task, userid_task, updatedAt) VALUES(?, ?, ?, ?, ?);";
 			PreparedStatement preparedStatement = connexion.prepareStatement(query);
 			
 			preparedStatement.setString(1, null);
@@ -131,6 +137,7 @@ public class TaskModel {
 			preparedStatement.setString(3, task.getDesc());
 			preparedStatement.setString(4, task.getLabelid());
 			preparedStatement.setString(5, task.getUserid());
+			preparedStatement.setString(6, formattedDate);
 			
 			preparedStatement.execute();
 			
@@ -144,8 +151,12 @@ public class TaskModel {
 		
 		String result;
 		
+		LocalDateTime myDateObj = LocalDateTime.now();
+	    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    String formattedDate = myDateObj.format(myFormatObj);
+		
 		try {
-			String query = "UPDATE Tasks SET title = ?, description = ?, labelid_task = ?, userid_task = ? WHERE Tasks.taskid ="+ taskid +";";
+			String query = "UPDATE Tasks SET title = ?, description = ?, labelid_task = ?, userid_task = ?, updatedAt = ? WHERE Tasks.taskid ="+ taskid +";";
 			
 			PreparedStatement preparedStatement = connexion.prepareStatement(query);
 			
@@ -153,6 +164,7 @@ public class TaskModel {
 			preparedStatement.setString(2, task.getDesc());
 			preparedStatement.setString(3, task.getLabelid());
 			preparedStatement.setString(4, task.getUserid());
+			preparedStatement.setString(5, formattedDate);
 			
 			preparedStatement.execute();
 			

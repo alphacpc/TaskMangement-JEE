@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,8 +97,12 @@ public class UsersModel {
 	
 	public void addUserModel(User user){
 		
+		LocalDateTime myDateObj = LocalDateTime.now();
+	    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    String formattedDate = myDateObj.format(myFormatObj);
+		
 		try {
-			String query = "INSERT INTO Users(userid, fname, lname, email, profession, pwd) VALUES(NULL, ?, ?, ?, ?, ?);";
+			String query = "INSERT INTO Users(userid, fname, lname, email, profession, pwd, updatedAt) VALUES(NULL, ?, ?, ?, ?, ?);";
 			PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO Users(userid, fname, lname, email, profession, pwd) VALUES(?, ?, ?, ?, ?, ?);");
 			
 			preparedStatement.setString(1, null);
@@ -105,6 +111,7 @@ public class UsersModel {
 			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.setString(5, user.getJob());
 			preparedStatement.setString(6, user.getPwd());
+			preparedStatement.setString(7, formattedDate);
 			
 			preparedStatement.execute();
 			
@@ -174,8 +181,12 @@ public class UsersModel {
 		
 		String result;
 		
+		LocalDateTime myDateObj = LocalDateTime.now();
+	    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    String formattedDate = myDateObj.format(myFormatObj);
+		
 		try {
-			String query = "UPDATE Users SET fname = ?, lname = ?, email = ?, profession = ? WHERE Users.userid ="+ userid +";";
+			String query = "UPDATE Users SET fname = ?, lname = ?, email = ?, profession = ?, updatedAt = ? WHERE Users.userid ="+ userid +";";
 			
 			PreparedStatement preparedStatement = connexion.prepareStatement(query);
 			
@@ -183,6 +194,7 @@ public class UsersModel {
 			preparedStatement.setString(2, user.getLname());
 			preparedStatement.setString(3, user.getEmail());
 			preparedStatement.setString(4, user.getJob());
+			preparedStatement.setString(5, formattedDate);
 			
 			preparedStatement.execute();
 			

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -113,13 +115,18 @@ public class LabelModel {
 	
 	public void addLabelModel(LabelBean label){
 		
+		LocalDateTime myDateObj = LocalDateTime.now();
+	    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    String formattedDate = myDateObj.format(myFormatObj);
+		
 		try {
-			String query = "INSERT INTO Labels(labelid, title, code) VALUES(NULL, ?, ?);";
-			PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO Labels(labelid, title, code) VALUES(?, ?, ?);");
+			
+			PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO Labels(labelid, title, code, updatedAt) VALUES(?, ?, ?);");
 			
 			preparedStatement.setString(1, null);
 			preparedStatement.setString(2, label.getTitle());
 			preparedStatement.setString(3, label.getCode());
+			preparedStatement.setString(4, formattedDate);
 			
 			preparedStatement.execute();
 			
@@ -154,13 +161,18 @@ public class LabelModel {
 		
 		String result;
 		
+		LocalDateTime myDateObj = LocalDateTime.now();
+	    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    String formattedDate = myDateObj.format(myFormatObj);
+		
 		try {
-			String query = "UPDATE Labels SET title = ?, code = ? WHERE Labels.labelid ="+ labelid +";";
+			String query = "UPDATE Labels SET title = ?, code = ?, updatedAt = ? WHERE Labels.labelid ="+ labelid +";";
 			
 			PreparedStatement preparedStatement = connexion.prepareStatement(query);
 			
 			preparedStatement.setString(1, label.getTitle());
 			preparedStatement.setString(2, label.getCode());
+			preparedStatement.setString(3, formattedDate);
 			
 			preparedStatement.execute();
 			
