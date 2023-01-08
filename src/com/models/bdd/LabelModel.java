@@ -121,7 +121,7 @@ public class LabelModel {
 		
 		try {
 			
-			PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO Labels(labelid, title, code, updatedAt) VALUES(?, ?, ?);");
+			PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO Labels(labelid, title, code, updatedAt) VALUES(?, ?, ?, ?);");
 			
 			preparedStatement.setString(1, null);
 			preparedStatement.setString(2, label.getTitle());

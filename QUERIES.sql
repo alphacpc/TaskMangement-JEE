@@ -10,13 +10,17 @@ CREATE TABLE IF NOT EXISTS Users(
     email varchar(100) NOT NULL UNIQUE,
     profession varchar(100),
     profil varchar(10) NOT NULL DEFAULT 'visiteur',
-    pwd varchar(255) NOT NULL
+    pwd varchar(255) NOT NULL,
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Labels(
     labelid int AUTO_INCREMENT PRIMARY KEY,
     title varchar(100) NOT NULL UNIQUE,
-    code varchar(20) NOT NULL DEFAULT '#1ABCFF'
+    code varchar(20) NOT NULL DEFAULT '#1ABCFF',
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Tasks(
@@ -26,7 +30,9 @@ CREATE TABLE IF NOT EXISTS Tasks(
     labelid_task int NOT NULL,
     userid_task int NOT NULL,
     FOREIGN KEY (userid_task) REFERENCES Users(userid),
-    FOREIGN KEY (labelid_task) REFERENCES Labels(labelid)
+    FOREIGN KEY (labelid_task) REFERENCES Labels(labelid),
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME NOT NULL
 );
 
 

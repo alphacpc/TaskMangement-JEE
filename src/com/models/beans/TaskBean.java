@@ -1,5 +1,7 @@
 package com.models.beans;
 
+import java.sql.Date;
+import java.time.LocalDate;
 
 public class TaskBean {
 	private int taskid;
@@ -11,6 +13,8 @@ public class TaskBean {
 	private String lname;
 	private String label;
 	private String code;
+	private String createdAt;
+	
 	
 	public String getTitle() {
 		return title;
@@ -66,7 +70,13 @@ public class TaskBean {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+	public String getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
+
 	
 	
 }

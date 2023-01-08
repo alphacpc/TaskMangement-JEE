@@ -33,6 +33,7 @@ public class TaskModel {
 				task.setDesc(result.getString("description"));
 				task.setUserid(result.getString("userid_task"));
 				task.setLabelid(result.getString("labelid_task"));
+				task.setCreatedAt(result.getString("createdAt"));
 				
 				taskList.add(task);
 			}
@@ -129,7 +130,7 @@ public class TaskModel {
 	    String formattedDate = myDateObj.format(myFormatObj);
 		
 		try {
-			String query = "INSERT INTO Tasks(taskid, title, description, labelid_task, userid_task, updatedAt) VALUES(?, ?, ?, ?, ?);";
+			String query = "INSERT INTO Tasks(taskid, title, description, labelid_task, userid_task, updatedAt) VALUES(?, ?, ?, ?, ?, ?);";
 			PreparedStatement preparedStatement = connexion.prepareStatement(query);
 			
 			preparedStatement.setString(1, null);

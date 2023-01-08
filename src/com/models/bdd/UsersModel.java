@@ -102,8 +102,8 @@ public class UsersModel {
 	    String formattedDate = myDateObj.format(myFormatObj);
 		
 		try {
-			String query = "INSERT INTO Users(userid, fname, lname, email, profession, pwd, updatedAt) VALUES(NULL, ?, ?, ?, ?, ?);";
-			PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO Users(userid, fname, lname, email, profession, pwd) VALUES(?, ?, ?, ?, ?, ?);");
+			
+			PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO Users(userid, fname, lname, email, profession, pwd, updatedAt) VALUES(?, ?, ?, ?, ?, ?, ?);");
 			
 			preparedStatement.setString(1, null);
 			preparedStatement.setString(2, user.getFname());

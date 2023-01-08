@@ -46,6 +46,14 @@
     font-size: 15px;
     margin-top: 10px;
     font-style: italic;
+
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 2; 
+   -webkit-box-orient: vertical;
+   height: 51px;
 }
 
 /* AFFCETED */

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -30,7 +31,7 @@
 
                     <div class="divMinDetail">
                         <a href="tache?taskid=${task.taskid}" class="title"><c:out value="${task.title}"/></a>
-                        <p><c:out value="${task.desc}" /></p>
+                        <p><c:out value="${task.desc}"/></p>
                     </div>
 
                     <div class="divAffected">
@@ -41,7 +42,7 @@
                         </div>
                         <div class="divCreated">
                             <p>Date de création</p>
-                            <span>12/12/2022</span>
+                            <span><c:out value="${task.createdAt.split(' ')[0].replace('-','/')}"/></span>
                         </div>
                     </div> 
                 </div>
